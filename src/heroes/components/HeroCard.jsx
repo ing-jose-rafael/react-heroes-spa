@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
+// este componente solo existe en este archivo 
+const CharactesByhero = ({alter_ego, characters}) => 
+   (alter_ego === characters) ? (<></>): // retorna nada
+   <p>{characters}</p>;
 
-const CharactesByhero = ({alter_ego, characters}) => {
-  if (alter_ego === characters) return (<></>); // retorna nada
-  return (<p>{characters}</p>);
-}
 
 export const HeroCard = ({
   id, 
