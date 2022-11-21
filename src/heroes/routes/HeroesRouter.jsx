@@ -12,7 +12,8 @@ export const HeroesRouter = () => {
         <Route path='marvel' element = {<MarvelPage/>}/>
         <Route path='dc' element = {<DcPage/>}/>
         <Route path='search' element = {<SearchPage/>}/>
-        <Route path='hero' element = {<HeroPage/>}/>
+        {/* comodin para recibir por la ruta el id */}
+        <Route path='hero/:id' element = {<HeroPage/>}/>
         
         <Route path='/' element = {<Navigate to='/dc'/>}/>
 
