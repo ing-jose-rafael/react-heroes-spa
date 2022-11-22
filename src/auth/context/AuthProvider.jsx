@@ -20,6 +20,7 @@ export const AuthProvider = ({ children }) => {
 
   // const [authState, dispatch] = useReducer(authReducer, initialSatate,init);
   const [authState, dispatch] = useReducer(authReducer, {},init);
+  
   const login = (name) => {
     const user = { id:'ABC', name:name };
     
@@ -30,9 +31,16 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('user',JSON.stringify(user));
     dispatch(action);
   }
+
+  const logout = () => {
+    localStorage.removeItem('user');
+    const action = { type: types.logout }
+    dispatch(action);
+  }
+  
   return (
     /** como inicialmente no se tiene valor se manda {} */
-    <AuthContext.Provider value={{ authState, login:login }}>
+    <AuthContext.Provider value={{ authState, login:login, logout:logout }}>
       {children}
     </AuthContext.Provider>
   )
