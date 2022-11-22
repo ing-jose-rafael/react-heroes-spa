@@ -3,7 +3,7 @@ import { types } from "../types/types";
 // const initialState = {
 //   logged: false,
 // };
-
+// aca no se debe llamar el localStore
 export const authReducer = ( state = {}, action ) => {
   switch (action.type) {
     case types.login:
