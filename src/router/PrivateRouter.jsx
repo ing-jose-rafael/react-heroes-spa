@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../auth'
 
@@ -8,9 +8,12 @@ export const PrivateRouter = ({children}) => {
   const { pathname, search } = useLocation(); 
   // const lastPath = useMemo(() => pathname + search, [pathname, search]);
   const lastPath = pathname + search;
-  localStorage.setItem('lastPath',lastPath); // guardando en localStore el ultimo url
+
+  useEffect(() => {
+    localStorage.setItem('lastPath',lastPath); // guardando en localStore el ultimo url
+  }, [pathname,search])
   
-  console.log('re-render');
+  
 
   return ( logged ) ? children  : <Navigate to='/login'/>
 }
